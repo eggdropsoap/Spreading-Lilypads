@@ -1,4 +1,4 @@
-Spreading-Lilypads
+Spreading Lilypads
 ==================
 
-A Minecraft Forge mod that makes lilypads spread in shallow water.
+A Minecraft Forge mod that makes Lily Pads spread in shallow water.
