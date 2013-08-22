@@ -2,6 +2,7 @@ package eggdropsoap.spreadinglilypads;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.world.World;
 
@@ -21,7 +22,7 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
     	{
 //    		System.out.println("Entering spreading attempt");
     		int checkDistance = 1;
-    		int lilyCap = 5;
+    		int lilyCap = 7;
     		int i;
     		int j;
     		
@@ -53,7 +54,10 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
         		newX = blockX + rng.nextInt(3) - 1;	// pick one of [-1, 0, 1] 
         		newZ = blockZ + rng.nextInt(3) - 1;	// ditto
 
-        		if (world.isAirBlock(newX, blockY, newZ) && this.canBlockStay(world, newX, blockY, newZ))
+        		if (world.isAirBlock(newX, blockY, newZ) &&
+        				this.canBlockStay(world, newX, blockY, newZ) &&
+        				this.hasDirtAndShallowWater(world, newX, blockY, newZ)
+        				)
     			{
 //    				System.out.println("This location is a valid target");
 
@@ -65,12 +69,22 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
     				// set the block location to a new Lily Pad with no metadata and a client update
         			world.setBlock(blockX, blockY, blockZ, this.blockID, 0, 2);
 
-        			break;
+        			break;	// pre-emptively terminate for loop once a spread target found
     			}    			
     		}    			
     	}
     }
 	
-	
+    // checks if the blocks underneath are one still water and one dirt/clay
+    public boolean hasDirtAndShallowWater(World world, int x, int y, int z)
+    {
+    	int blockUnder = world.getBlockId(x, y - 1, z);
+    	int blockTwoUnder = world.getBlockId(x, y - 2, z);
+    	return ( blockUnder == Block.waterStill.blockID &&
+    			( blockTwoUnder == Block.dirt.blockID ||
+    			blockTwoUnder == Block.blockClay.blockID ||
+    			blockTwoUnder == Block.sand.blockID)
+    			);
+    }
 
 }
