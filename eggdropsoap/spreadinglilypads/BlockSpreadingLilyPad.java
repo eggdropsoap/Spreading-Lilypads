@@ -18,7 +18,7 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
     public void updateTick(World world, int blockX, int blockY, int blockZ, Random rng)
     {
     	System.out.printf("Received update tick at %d %d %d\n", blockX, blockY, blockZ);
-    	if (true)//rng.nextInt(25) == 0)
+    	if (rng.nextInt(10) == 0)
     	{
 //    		System.out.println("Entering spreading attempt");
     		int checkDistance = 1;
