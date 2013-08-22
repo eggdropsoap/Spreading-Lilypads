@@ -43,37 +43,31 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
     			
     		}
     		
-    		// pick a spot to try to spread to
-    		int newX = blockX + rng.nextInt(3) - 1;	// pick one of [-1, 0, 1] 
-    		int newZ = blockZ + rng.nextInt(3) - 1;	// ditto
+    		int newX; 
+    		int newZ;
     		
 //    		System.out.printf("Trying to spread to %d %d %d\n", newX, blockY, newZ);
     		
-    		for (int attempts = 0; attempts < 4; ++attempts)
+    		for (int attempts = 0; attempts < 4; ++attempts)	// try four times to spread
     		{
-    			if (world.isAirBlock(newX, blockY, newZ) && this.canBlockStay(world, newX, blockY, newZ))
+        		newX = blockX + rng.nextInt(3) - 1;	// pick one of [-1, 0, 1] 
+        		newZ = blockZ + rng.nextInt(3) - 1;	// ditto
+
+        		if (world.isAirBlock(newX, blockY, newZ) && this.canBlockStay(world, newX, blockY, newZ))
     			{
 //    				System.out.println("This location is a valid target");
 
     				blockX = newX;
     				blockZ = newZ;
-    			}
-    			
-        		// pick a spot to try to spread to
-        		newX = blockX + rng.nextInt(3) - 1;	// pick one of [-1, 0, 1] 
-        		newZ = blockZ + rng.nextInt(3) - 1;	// ditto
-
-//        		System.out.printf("Trying to spread to %d %d %d\n", newX, blockY, newZ);
-    			
-    			if (world.isAirBlock(newX, blockY, newZ) && this.canBlockStay(world, newX, blockY, newZ))
-        		{
+    				
     				System.out.println("Spreading!");
     				
     				// set the block location to a new Lily Pad with no metadata and a client update
         			world.setBlock(blockX, blockY, blockZ, this.blockID, 0, 2);
-        		}
-    		}
-    			
+
+        			break;
+    			}    			
+    		}    			
     	}
     }
 	
