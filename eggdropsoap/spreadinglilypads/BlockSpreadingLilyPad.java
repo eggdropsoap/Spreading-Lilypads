@@ -34,7 +34,7 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
     	{
 //    		System.out.println("Entering spreading attempt");
     		int checkDistance = 1;
-    		int lilyCap = 7;
+    		int lilyCap = 6;
     		int i;
     		int j;
     		
@@ -100,19 +100,24 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
     		if (! ( world.getBlockId(x, y - waterDepth, z) == Block.waterStill.blockID ) )
     		{	
     			// we've found a non-water block:
-    			// back up one block to where water was
-    			waterDepth = waterDepth - 1;
     			break;
     		}
     	}
+		// back up one block to where water was
+		waterDepth = waterDepth - 1;
+
+		System.out.printf("%d %d %d: Water depth %d\n", x, y, z, waterDepth);
     	
     	shallow = ( waterDepth <= maxDepth );
     	
-    	hasSoil = SOILS.contains(world.getBlockId(x, y - waterDepth - 1, z));
+    	hasSoil = SOILS.contains(world.getBlockId(x, y - (waterDepth + 1), z));
     	
-//    	System.out.printf("%d %d %d: Shallow: %b; hasSoil: %b\n", x, y, z, shallow, hasSoil);
+    	System.out.printf("%d %d %d: Shallow: %b; hasSoil: %b\n", x, y, z, shallow, hasSoil);
     	
     	return ( shallow && hasSoil );    	
     }
 
+    public int idDropped(int par1, Random random, int par2) {
+        return Block.waterlily.blockID;
+    }
 }
