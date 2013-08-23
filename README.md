@@ -84,11 +84,14 @@ License and Permissions
 -----------------------
 
 Spreading Lilypads is open source, using the 2-clause BSD license (see the LICENSE file
-inside the zip file for a copy of the license). That means you have the freedom to do
+inside the zip file or [LICENSE in the code repo](https://github.com/eggdropsoap/Spreading-Lilypads/blob/master/LICENSE)
+for a copy of the license). That means you have the freedom to do
 quite a bit with this, including using it in a modpack without needing to ask for my
 permission first. (Though if you do, feel free to let me know so I can be all proud.)
 
-The source is available in its GitHub repo and may or may not work at any given time,
+The source is available in my
+[Spreading Lilypads GitHub repo](https://github.com/eggdropsoap/Spreading-Lilypads)
+and may or may not work at any given time,
 but you are welcome to take a look at it, fork it, and submit issues there.
 
 Downloads
@@ -99,4 +102,4 @@ Downloads
 Changelog
 ---------
 
-v0.1.0: Initial release.
+- 0.1.0: Initial release.
