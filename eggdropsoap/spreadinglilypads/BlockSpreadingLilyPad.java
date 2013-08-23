@@ -48,7 +48,7 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
         				--lilyCap;
         				if (lilyCap <= 0)
         				{
-        					System.out.printf("%d %d %d: Too many lilies in range\n", blockX, blockY, blockZ);
+//        					System.out.printf("%d %d %d: Too many lilies in range\n", blockX, blockY, blockZ);
         					return;
         				}
         			}
@@ -76,7 +76,7 @@ public class BlockSpreadingLilyPad extends BlockLilyPad
     				blockX = newX;
     				blockZ = newZ;
     				
-    				System.out.printf("%d %d %d: Spreading!\n", newX, blockY, newZ);
+//    				System.out.printf("%d %d %d: Spreading!\n", newX, blockY, newZ);
     				
     				// set the block location to a new Lily Pad with no metadata and a client update
         			world.setBlock(blockX, blockY, blockZ, this.blockID, 0, 2);
