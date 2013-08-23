@@ -42,7 +42,7 @@ public class SpreadingLilypads {
         // get configuration
     	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
     	config.load();
-    	spreadingLilyPadID = config.getBlock("spreadingLilyPad", 500).getInt();
+    	spreadingLilyPadID = config.getBlock("spreadingLilyPad", 1700).getInt();
     	config.save();
     	
     	// initialise spreading block
