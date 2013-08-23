@@ -50,13 +50,15 @@ public class SpreadingLilypads {
     			.setHardness(0.0F).setStepSound(Block.soundGrassFootstep)
     			.setUnlocalizedName("spreadinglily")
     			.func_111022_d("waterlily")
-    			.setCreativeTab(CreativeTabs.tabDecorations);
+    			.setCreativeTab(CreativeTabs.tabDecorations);    	
     }
    
     @EventHandler // used in 1.6.2
     //@Init       // used in 1.5.2
     public void load(FMLInitializationEvent event) {
             proxy.registerRenderers();
+            
+            LanguageRegistry.addName(spreadingLilyPad, "Lily Pad");
             
             // replace worldgen lilypads with spreading lilies,
             // but keeping original blockID for save compatibility
