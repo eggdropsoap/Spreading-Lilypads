@@ -5,6 +5,7 @@ package eggdropsoap.spreadinglilypads;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler; // used in 1.6.2
@@ -39,18 +40,13 @@ public class SpreadingLilypads {
     //@PreInit    // used in 1.5.2
     public void preInit(FMLPreInitializationEvent event)
     {
-        // get configuration
-    	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-    	config.load();
-    	spreadingLilyPadID = config.getBlock("spreadingLilyPad", 1700).getInt();
-    	config.save();
-    	
     	// initialise spreading block
-    	spreadingLilyPad = (new BlockSpreadingLilyPad(spreadingLilyPadID))
+    	Block.blocksList[Block.waterlily.blockID] = null;
+    	spreadingLilyPad = (new BlockSpreadingLilyPad(Block.waterlily.blockID))
     			.setHardness(0.0F).setStepSound(Block.soundGrassFootstep)
     			.setUnlocalizedName("spreadinglily")
     			.func_111022_d("waterlily")
-    			.setCreativeTab(CreativeTabs.tabDecorations);    	
+    			.setCreativeTab(CreativeTabs.tabDecorations);
     }
    
     @EventHandler // used in 1.6.2
@@ -58,13 +54,11 @@ public class SpreadingLilypads {
     public void load(FMLInitializationEvent event) {
             proxy.registerRenderers();
             
-            LanguageRegistry.addName(spreadingLilyPad, "Lily Pad");
+            LanguageRegistry.addName(spreadingLilyPad, "Spreading Lily Pad");
             
             // replace worldgen lilypads with spreading lilies,
             // but keeping original blockID for save compatibility
             Block.blocksList[Block.waterlily.blockID] = spreadingLilyPad;
-            
-
     }
    
     @EventHandler // used in 1.6.2
