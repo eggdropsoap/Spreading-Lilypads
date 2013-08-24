@@ -20,7 +20,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="SpreadingLilypads", name="Spreading Lilypads", version="0.1.0")
+@Mod(modid="SpreadingLilypads", name="Spreading Lilypads", version="0.2.0")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class SpreadingLilypads {
 	
