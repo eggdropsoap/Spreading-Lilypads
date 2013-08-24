@@ -7,7 +7,8 @@ Features
 --------
 
 This mod transparently adds growth behaviour to existing lily pads. Lily Pads will now
-spread (much like mushrooms do) in shallow water that has "natural" soil beneath.
+spread (much like mushrooms do) in shallow water that has natural "soil" beneath.
+This makes Lily Pads a renewable resource.
 There is *no new worldgen*. This works with existing lilypads in existing worlds.
 
 That's it! There's not much more in the way of features.
