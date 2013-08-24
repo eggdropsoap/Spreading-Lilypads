@@ -62,8 +62,6 @@ Spreading Lilypads makes no base edits to vanilla Minecraft classes, so it shoul
 compatible with any Forge-compatible mod that doesn't also attempt to alter Lily Pad
 blocks.
 
-One block ID is used that defaults to 1700, but which can be changed in the config file.
-
 Installing
 ----------
 
@@ -75,11 +73,7 @@ Uninstalling
 
 1. Remove SpreadingLilypads.zip from your mods folder.
 
-When you uninstall, all the new lilypads will disappear from your world, leaving only
-original world-generated lilypads and hand-placed ones. Neat, eh? So don't worry about
-the lilypads taking over your wetlands and ponds; if you end up not liking the effect,
-you can safely revert all the changes this mod makes by simply removing it from your
-mods folder and loading your world without it.
+Lilypads created by spreading will remain in your world as vanilla non-spreading lilypads.
 
 License and Permissions
 -----------------------
@@ -102,5 +96,11 @@ Downloads
 
 Changelog
 ---------
+
+- 0.2.0:
+
+    - attempt to fix inventory item rendering bug
+    - lilypads created by spreading will now remain in worlds after uninstalling
+    - no config file anymore (block ID no longer needed)
 
 - 0.1.0: Initial release.
